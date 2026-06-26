@@ -32,19 +32,27 @@ public class BD
     public List<figuritas> AbrirSobre ()
     {
         Random random = new Random ();
-        int x = random.Next(1, 48);
+       
         List <figuritas> sobre = new List<figuritas>();
         List<figuritas> figuritas = new List<figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
             figuritas = connection.Query<figuritas>(query).ToList();
-        }
+        } 
+        int x = random.Next(0, figuritas.Count);
+
         for (int i = 0 ; i < 5 ; i++)
         {
             sobre.Add(figuritas[x]);
-            
+
         }
-        return sobre;
-    }
+         return sobre;   
+     }
+
+     public void ConfimarSobre ()
+     {
+        List <figuritas> sobre = AbrirSobre();
+     }
 }
+
