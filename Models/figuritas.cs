@@ -7,5 +7,11 @@ public class figuritas
     public string Imagen { get; set; }
 
     
+    public figuritas(string nombre, int numero, string imagen)
+    {
+        this.Nombre = nombre;
+        this.Numero = numero;
+        this.Imagen = "fondo.png";
+    }
 
 }
