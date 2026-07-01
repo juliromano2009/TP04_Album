@@ -16,5 +16,4 @@ public class Figuritas
         yaPegada = false;
         cantEnPosesion = 0;
     }
-
 }

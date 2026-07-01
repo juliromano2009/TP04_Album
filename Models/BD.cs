@@ -44,6 +44,8 @@ public class BD
 
         for (int i = 0 ; i < 5 ; i++)
         {
+            int x = random.Next(0, figuritas.Count);
+            
             sobre.Add(figuritas[x]);
 
         }
