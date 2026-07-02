@@ -18,13 +18,13 @@ public class BD
         return figuritas; 
     }
 
-    public List<Figuritas> ListaFiguritasPorUsuario(int numero)
+    public List<Figuritas> ListaFiguritasPorUsuario()
     {
         List <Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM figuritas_x_usuario "; 
-            figuritas = connection.Query<Figuritas>(query, new { Numero = numero }).ToList();
+            figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas; 
     }
@@ -46,7 +46,14 @@ public class BD
      public void ConfimarSobre ()
      {
         List <Figuritas> sobre = AbrirSobre();
-        
+        for (int i = 0 ; i < sobre.Count ; i++)
+        {
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = "INSERT INTO figuritas_x_usuario (Nombre, Numero, Imagen) VALUES (@Nombre, @Numero, @Imagen)";
+                connection.Execute(query, new { Nombre = sobre[i].Nombre, Numero = sobre[i].Numero, Imagen = sobre[i].Imagen });
+            }
+        }
      }
 }
 

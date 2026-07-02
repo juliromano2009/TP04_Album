@@ -6,6 +6,8 @@ namespace Album.Controllers;
 
 public class AlbumController : Controller
 {
+    BD bd = new BD();
+
     public IActionResult Index()
     {
         return View();
@@ -14,8 +16,19 @@ public class AlbumController : Controller
     {
         return View();
     }  
+    public IActionResult Sobre()
+    {
+        ViewBag.Sobre = bd.AbrirSobre();
+        return View();
+    }
+    public IActionResult ConfirmarSobre()
+    {
+        bd.ConfimarSobre();
+        return RedirectToAction("VerAlbum");
+    }
     public IActionResult VerAlbum()
     {
+        ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
         return View();
     }
 }
