@@ -14,13 +14,10 @@ public class AlbumController : Controller
     } 
     public IActionResult AbrirSobre()
     {
-        return View();
-    }  
-    public IActionResult Sobre()
-    {
         ViewBag.Sobre = bd.AbrirSobre();
         return View();
-    }
+    }  
+
     public IActionResult ConfirmarSobre()
     {
         bd.ConfimarSobre();
