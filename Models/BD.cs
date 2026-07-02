@@ -9,7 +9,7 @@ public class BD
 
     public List<Figuritas> ListaFiguritas()
     {
-        List <Figuritas> figuritas = new List<figuritas>();
+        List <Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
