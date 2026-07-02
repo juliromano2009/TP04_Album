@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Dapper; 
 
-namespace tp3.Models; 
+namespace Album.Models;
 
 public class BD 
 {
