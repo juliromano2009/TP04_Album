@@ -7,38 +7,38 @@ public class BD
 {
     public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;"; 
 
-    public List<figuritas> ListaFiguritas()
+    public List<Figuritas> ListaFiguritas()
     {
-        List <figuritas> figuritas = new List<figuritas>();
+        List <Figuritas> figuritas = new List<figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
-            figuritas = connection.Query<figuritas>(query).ToList();
+            figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas; 
     }
 
-    public List<figuritas> ListaFiguritasPorUsuario(int numero)
+    public List<Figuritas> ListaFiguritasPorUsuario(int numero)
     {
-        List <figuritas> figuritas = new List<figuritas>();
+        List <Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM figuritas_x_usuario ";
-            figuritas = connection.Query<figuritas>(query, new { Numero = numero }).ToList();
+            figuritas = connection.Query<Figuritas>(query, new { Numero = numero }).ToList();
         }
         return figuritas; 
     }
 
-    public List<figuritas> AbrirSobre ()
+    public List<Figuritas> AbrirSobre ()
     {
         Random random = new Random ();
        
-        List <figuritas> sobre = new List<figuritas>();
-        List<figuritas> figuritas = new List<figuritas>();
+        List <Figuritas> sobre = new List<Figuritas>();
+        List<Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
-            figuritas = connection.Query<figuritas>(query).ToList();
+            figuritas = connection.Query<Figuritas>(query).ToList();
         } 
         int x = random.Next(0, figuritas.Count);
 
@@ -54,7 +54,7 @@ public class BD
 
      public void ConfimarSobre ()
      {
-        List <figuritas> sobre = AbrirSobre();
+        List <Figuritas> sobre = AbrirSobre();
      }
 }
 
