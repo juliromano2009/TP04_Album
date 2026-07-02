@@ -1,0 +1,18 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Abrir Sobre</title>
+</head>
+<body>
+    <h1>Abrir Sobre</h1>
+    <ul>
+        @foreach (var figurita in ViewBag.Sobre)
+        {
+            <li>
+                <strong>@figurita.Nombre</strong> - @figurita.Numero
+                <img src="@figurita.Imagen" alt="@figurita.Nombre" />
+            </li>
+        }
+    </ul>
+</body>
+</html>
