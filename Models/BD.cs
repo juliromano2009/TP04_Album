@@ -47,7 +47,6 @@ public class BD
      {
         List <figuritas> sobre = AbrirSobre();
         
-
      }
 }
 
