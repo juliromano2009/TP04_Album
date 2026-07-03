@@ -12,7 +12,7 @@ public class BD
         List <Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
+            string query = "SELECT Nombre, Numero, Imagen, ID_seleccion FROM Figuritas";
             figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas; 
@@ -66,14 +66,15 @@ public class BD
         }
         return cantidad;
     }
-    public string pedirNombreSeleccion(int id)
+    public List<string> pedirNombreSeleccion()
     {
-        List
+        List<string> nombreSelecciones = new List<string>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT pais FROM Selecciones WHERE ID = @id";
-            cantidad = connection.Execute(query);
+                string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
+                connection.Query<string>(query).ToList();
         }
+        return nombreSelecciones;
     }
 }
 

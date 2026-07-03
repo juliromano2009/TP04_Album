@@ -21,10 +21,13 @@ public class AlbumController : Controller
     public IActionResult ConfirmarSobre()
     {
         bd.ConfimarSobre();
-        return RedirectToAction("VerAlbum");
+        return RedirectToAction("Album");
     }
     public IActionResult VerAlbum()
     {
+        ViewBag.FigusUsuario = bd.ListaFiguritasPorUsuario();
+        ViewBag.TodasLasFigus = bd.ListaFiguritas();
+        ViewBag.NombreSelecciones = bd.pedirNombreSeleccion();
         ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
         return View("Album");
     }

@@ -1,9 +1,12 @@
-@for(int i = 0; i < ViewBag.CantSelecciones; i++)
+@for(int i = 1; i <= ViewBag.CantSelecciones; i++)
 {
     <section>
-        <h1></h1>
-        <div>
-        </div>
+        <h1>@ViewBag.NombreSelecciones[i]</h1>
+        @for(int x = 1; x <= 5; x++)
+        {
+            
+        }
+        
 </section>
 }
 
