@@ -12,7 +12,7 @@ public class BD
         List <Figuritas> figuritas = new List<Figuritas>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT Nombre, Numero, Imagen FROM Figuritas";
+            string query = "SELECT Nombre, Numero, Imagen FROM Jugadores";
             figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas; 
