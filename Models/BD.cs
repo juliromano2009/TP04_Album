@@ -41,10 +41,10 @@ public class BD
             sobre.Add(figuritas[x]);
         }
          return sobre;   
-     }
+    }
 
-     public void ConfimarSobre ()
-     {
+    public void ConfimarSobre ()
+    {
         List <Figuritas> sobre = AbrirSobre();
         for (int i = 0 ; i < sobre.Count ; i++)
         {
@@ -54,10 +54,10 @@ public class BD
                 connection.Execute(query, new { Nombre = sobre[i].Nombre, Numero = sobre[i].Numero, Imagen = sobre[i].Imagen });
             }
         }
-     }
+    }
 
-     public int pedirCantSelecciones()
-     {
+    public int pedirCantSelecciones()
+    {
         int cantidad;
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -65,6 +65,15 @@ public class BD
             cantidad = connection.Execute(query);
         }
         return cantidad;
-     }
+    }
+    public string pedirNombreSeleccion(int id)
+    {
+        List
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT pais FROM Selecciones WHERE ID = @id";
+            cantidad = connection.Execute(query);
+        }
+    }
 }
 
