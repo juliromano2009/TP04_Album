@@ -27,6 +27,6 @@ public class AlbumController : Controller
     {
         ViewBag.CantSelecciones = bd.pedirCantSelecciones();
         ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
-        return View();
+        return View("Album");
     }
 }
