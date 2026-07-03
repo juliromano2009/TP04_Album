@@ -9,10 +9,11 @@
         @foreach (var figurita in ViewBag.Sobre)
         {
             <li>
-                <strong>@figurita.Nombre</strong> - @figurita.Numero
                 <img src="@figurita.Imagen" alt="@figurita.Nombre" />
             </li>
         }
     </ul>
+    
+    <button onclick="location.href='@Url.Action("ConfirmarSobre", "Album")'">Confirmar Sobre</button>
 </body>
 </html>
