@@ -66,7 +66,7 @@ public class BD
         }
         return cantidad;
     }
-    public string pedirNombreSeleccion()
+    public List<string> pedirNombreSeleccion()
     {
         List<string> nombreSelecciones = new List<string>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
