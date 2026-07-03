@@ -55,5 +55,16 @@ public class BD
             }
         }
      }
+
+     public int pedirCantSelecciones()
+     {
+        int cantidad;
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT ID FROM Selecciones";
+            cantidad = connection.Execute(query);
+        }
+        return cantidad;
+     }
 }
 
