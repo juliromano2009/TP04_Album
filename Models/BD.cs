@@ -66,14 +66,15 @@ public class BD
         }
         return cantidad;
     }
-    public string pedirNombreSeleccion(int id)
+    public string pedirNombreSeleccion()
     {
-        List
+        List<string> nombreSelecciones = new List<string>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT pais FROM Selecciones WHERE ID = @id";
-            cantidad = connection.Execute(query);
+                string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
+                connection.Query<string>(query).ToList();
         }
+        return nombreSelecciones;
     }
 }
 

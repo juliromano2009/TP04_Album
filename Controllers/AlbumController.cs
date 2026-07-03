@@ -25,6 +25,7 @@ public class AlbumController : Controller
     }
     public IActionResult VerAlbum()
     {
+        ViewBag.NombreSelecciones = bd.pedirNombreSeleccion();
         ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
         return View("Album");
     }
