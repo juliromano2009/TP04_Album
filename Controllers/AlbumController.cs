@@ -26,6 +26,6 @@ public class AlbumController : Controller
     public IActionResult VerAlbum()
     {
         ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
-        return View();
+        return View("Album");
     }
 }
