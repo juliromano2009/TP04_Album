@@ -7,13 +7,15 @@ public class Figuritas
     public string Imagen { get; set; }
     public bool yaPegada {get; set;}
     public int cantEnPosesion {get; set;}
+    public int idSeleccion{get; set;}
     
-    Figuritas(string nombre, int numero, string imagen)
+    Figuritas(string nombre, int numero, string imagen, int idSeleccion)
     {
         this.Nombre = nombre;
         this.Numero = numero;
         this.Imagen = "fondo.png";
         yaPegada = false;
         cantEnPosesion = 0;
+        this.idSeleccion = idSeleccion;
     }
 }
