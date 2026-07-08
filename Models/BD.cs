@@ -7,26 +7,24 @@ public class BD
 {
     public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
  
-
     public List<Figuritas> ListaFiguritas()
     {
         List<Figuritas> figuritas = new List<Figuritas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion
+            string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion
                               FROM Jugador";
             figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas;
     }
  
-
     public List<Figuritas> ListaFiguritasPorUsuario()
     {
         List<Figuritas> figuritas = new List<Figuritas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT j.nombre AS Nombre, j.ID AS Numero, j.img AS Imagen, j.ID_seleccion, f.cantidad AS Cantidad
+            string query = @"SELECT j.nombre AS Nombre, j.ID AS Numero, j.img AS Imagen, j.ID_seleccion AS idSeleccion, f.cantidad AS cantEnPosesion
                               FROM figuritas_x_usuario f
                               INNER JOIN Jugador j ON j.ID = f.ID_Jugador";
             figuritas = connection.Query<Figuritas>(query).ToList();
@@ -79,7 +77,7 @@ public class BD
         }
         return cantidad;
     }
- 
+
     public List<string> pedirNombreSeleccion()
     {
         List<string> nombreSelecciones = new List<string>();
@@ -91,4 +89,3 @@ public class BD
         return nombreSelecciones;
     }
 }
- 
