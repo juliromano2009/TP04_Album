@@ -71,8 +71,8 @@ public class BD
         List<string> nombreSelecciones = new List<string>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-                string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
-                connection.Query<string>(query).ToList();
+            string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
+            connection.Query<string>(query).ToList();
         }
         return nombreSelecciones;
     }

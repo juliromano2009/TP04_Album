@@ -4,7 +4,15 @@
         <h1>@ViewBag.NombreSelecciones[i]</h1>
         @for(int x = 1; x <= 5; x++)
         {
-            
+            <div>
+                if(@ViewBag.FigusUsuario[(i-1) + x] == null)
+                {
+                    <img src="fondo.png" alt="">
+                }
+                else{
+                    <img src="@ViewBag.FigusUsuario[(i-1) + x].Imagen" alt="">
+                }
+            </div>
         }
         
 </section>
