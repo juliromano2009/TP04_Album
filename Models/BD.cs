@@ -9,14 +9,11 @@ public class BD
  
     public List<Figuritas> ListaFiguritas()
     {
-        List<Figuritas> figuritas = new List<Figuritas>();
-        using (SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion
-                              FROM Jugador";
-            figuritas = connection.Query<Figuritas>(query).ToList();
-        }
-        return figuritas;
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion";
+        return connection.Query<Figuritas>(query).ToList();
+    }
     }
  
     public List<Figuritas> ListaFiguritasPorUsuario()
