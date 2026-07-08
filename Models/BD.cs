@@ -46,9 +46,8 @@ public class BD
         return sobre;
     }
  
-    public void ConfimarSobre()
+    public void ConfimarSobre(List<Figuritas> sobre)
     {
-        List<Figuritas> sobre = AbrirSobre();
         for (int i = 0; i < sobre.Count; i++)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
