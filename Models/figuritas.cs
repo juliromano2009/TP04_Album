@@ -1,4 +1,3 @@
-
 namespace Album.Models;
 
 public class Figuritas
