@@ -18,9 +18,9 @@ public class AlbumController : Controller
         return View();
     }  
 
-    public IActionResult ConfirmarSobre()
+    public IActionResult ConfirmarSobre(List<Figuritas> sobre )
     {
-        bd.ConfimarSobre();
+        bd.ConfimarSobre(sobre);
         return RedirectToAction("Album");
     }
     public IActionResult VerAlbum()

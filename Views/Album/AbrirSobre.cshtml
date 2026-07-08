@@ -13,8 +13,6 @@
             </li>
         }
     </ul>
-    
-<button type="button" onclick='location.href="@Url.Action("ConfirmarSobre", "Album")"'>Confirmar Sobre</button>
-
+<button type="button" onclick='location.href="@Url.Action("ConfirmarSobre", "Album", new { sobre = @ViewBag.Sobre })"'>Confirmar Sobre</button>
 </body>
 </html>
