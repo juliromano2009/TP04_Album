@@ -80,11 +80,7 @@ public class BD
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
-<<<<<<< HEAD
-            connection.Query<string>(query).ToList();
-=======
             nombreSelecciones = connection.Query<string>(query).ToList();
->>>>>>> 5c415439b64d3309760f67e0bec19c15afcccd94
         }
         return nombreSelecciones;
     }
