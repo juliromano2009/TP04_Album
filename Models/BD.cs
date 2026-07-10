@@ -1,3 +1,5 @@
+
+Bd · CS
 using Microsoft.Data.SqlClient;
 using Dapper;
  
@@ -9,11 +11,12 @@ public class BD
  
     public List<Figuritas> ListaFiguritas()
     {
-    using (SqlConnection connection = new SqlConnection(_connectionString))
-    {
-        string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion";
-        return connection.Query<Figuritas>(query).ToList();
-    }
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion
+                              FROM figuritas";
+            return connection.Query<Figuritas>(query).ToList();
+        }
     }
  
     public List<Figuritas> ListaFiguritasPorUsuario()
@@ -23,12 +26,12 @@ public class BD
         {
             string query = @"SELECT j.nombre AS Nombre, j.ID AS Numero, j.img AS Imagen, j.ID_seleccion AS idSeleccion, f.cantidad AS cantEnPosesion
                               FROM figuritas_x_usuario f
-                              INNER JOIN Jugador j ON j.ID = f.ID_Jugador";
+                              INNER JOIN figuritas j ON j.ID = f.ID_Jugador";
             figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas;
     }
-
+ 
     public List<Figuritas> AbrirSobre()
     {
         Random random = new Random();
@@ -73,19 +76,16 @@ public class BD
         }
         return cantidad;
     }
-
+ 
     public List<string> pedirNombreSeleccion()
     {
         List<string> nombreSelecciones = new List<string>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "SELECT pais FROM Selecciones ORDER BY ID ASC";
-<<<<<<< HEAD
-            connection.Query<string>(query).ToList();
-=======
             nombreSelecciones = connection.Query<string>(query).ToList();
->>>>>>> 5c415439b64d3309760f67e0bec19c15afcccd94
         }
         return nombreSelecciones;
     }
 }
+ 
