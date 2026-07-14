@@ -2,7 +2,7 @@ namespace Album.Models;
 
 public class Figuritas
 {
-    public string Nombre { get; set; }
+    public string ? Nombre { get; set; }
     public int Numero { get; set; }
     public string Imagen { get; set; } 
     public bool yaPegada { get; set; }

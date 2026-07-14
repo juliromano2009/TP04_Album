@@ -1,5 +1,3 @@
-<<!DOCTYPE html>
-<html>
 <head>
     <title>Abrir Sobre</title>
 </head>
@@ -13,5 +11,5 @@
             </li>
         }
     </ul>
-<button type="button" onclick='location.href="@Url.Action("ConfirmarSobre", "Album", new { f1 = @ViewBag.Sobre[0], f2 = @ViewBag.Sobre[1], f3 = @ViewBag.Sobre[2], f4 = @ViewBag.Sobre[3], f5 = @ViewBag.Sobre[4] })"'>Confirmar Sobre</button>
-</html>
+<button type="button" onclick='location.href="@Url.Action("ConfirmarSobre", "Album", new {@ViewBag.Sobre[0], @ViewBag.Sobre[1], @ViewBag.Sobre[2], @ViewBag.Sobre[3], @ViewBag.Sobre[4] })"'>Confirmar Sobre</button>
+</body>
