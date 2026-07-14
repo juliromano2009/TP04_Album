@@ -48,7 +48,7 @@ public void ConfirmarSobre(List<int> sobre)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        foreach (var figurita in sobre)
+        foreach (var idFigurita in sobre)
         {
             string query = @"
                 IF EXISTS (SELECT 1 FROM Figuritas_X_Usuario WHERE IDFigurita = @ID_Jugador)
@@ -59,7 +59,7 @@ public void ConfirmarSobre(List<int> sobre)
                     INSERT INTO Figuritas_X_Usuario (ID, IDFigurita, Cantidad)
                     VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
 
-            connection.Execute(query, new { ID_Jugador = figurita.Numero });
+            connection.Execute(query, new { ID_Jugador = idFigurita });
         }
     }
 }
