@@ -59,7 +59,7 @@ public void ConfirmarSobre(List<Figuritas> sobre)
                     INSERT INTO Figuritas_X_Usuario (ID, IDFigurita, Cantidad)
                     VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
 
-            connection.Execute(query, new { ID_Jugador = figurita.ID });
+            connection.Execute(query, new { ID_Jugador = figurita.Numero });
         }
     }
 }
