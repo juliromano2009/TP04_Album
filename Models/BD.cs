@@ -6,13 +6,13 @@ namespace Album.Models;
  
 public class BD
 {
-    public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
+    public string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
  
     public List<Figuritas> ListaFiguritas()
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT nombre AS Nombre, ID AS Numero, img AS Imagen, ID_seleccion AS idSeleccion
+            string query = @"SELECT Nombre AS Nombre, ID AS Numero, img AS Imagen, IDSeleccion AS idSeleccion
                               FROM figuritas";
             return connection.Query<Figuritas>(query).ToList();
         }
