@@ -44,25 +44,25 @@ public class BD
         return sobre;
     }
  
-    public void ConfimarSobre(List<Figuritas> sobre)
+public void ConfirmarSobre(List<Figuritas> sobre)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        for (int i = 0; i < sobre.Count; i++)
+        foreach (var figurita in sobre)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                string query = @"
-                    IF EXISTS (SELECT 1 FROM Figuritas_X_Usuario WHERE IDFigurita = @ID_Jugador)
-                        UPDATE Figuritas_X_Usuario
-                        SET Cantidad = Cantidad + 1
-                        WHERE IDFigurita = @ID_Jugador
-                    ELSE
-                        INSERT INTO Figuritas_X_Usuario (ID, IDFigurita, Cantidad)
-                        VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
- 
-                connection.Execute(query, new { ID_Jugador = sobre[i].Numero });
-            }
+            string query = @"
+                IF EXISTS (SELECT 1 FROM Figuritas_X_Usuario WHERE IDFigurita = @ID_Jugador)
+                    UPDATE Figuritas_X_Usuario
+                    SET Cantidad = Cantidad + 1
+                    WHERE IDFigurita = @ID_Jugador
+                ELSE
+                    INSERT INTO Figuritas_X_Usuario (ID, IDFigurita, Cantidad)
+                    VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
+
+            connection.Execute(query, new { ID_Jugador = figurita.ID });
         }
     }
+}
  
     public int pedirCantSelecciones()
     {
