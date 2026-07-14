@@ -1,7 +1,6 @@
 
 using Microsoft.Data.SqlClient;
 using Dapper;
- 
 namespace Album.Models;
  
 public class BD
