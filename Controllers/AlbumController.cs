@@ -18,11 +18,11 @@ public class AlbumController : Controller
         return View();
     }  
 
-    public IActionResult ConfirmarSobre(Figuritas f1 , Figuritas f2 , Figuritas f3 , Figuritas f4 , Figuritas f5)
+    public IActionResult ConfirmarSobre( int f1 , int f2 , int f3 , int f4 , int f5)
     {
-        List<Figuritas> sobre = new List <Figuritas>();
-       sobre.Add(f1);
-       sobre.Add(f2); 
+        List<int> sobre = new List <int>();
+        sobre.Add(f1);
+        sobre.Add(f2); 
         sobre.Add(f3);
         sobre.Add(f4);
         sobre.Add(f5);

@@ -44,7 +44,7 @@ public class BD
         return sobre;
     }
  
-public void ConfirmarSobre(List<Figuritas> sobre)
+public void ConfirmarSobre(List<int> sobre)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
