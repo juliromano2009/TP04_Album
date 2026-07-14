@@ -10,7 +10,7 @@
             }
                @for( int y = 0; y < ViewBag.figusUsuario.Count; y++)
                {
-                   if(ViewBag.figusUsuario[y].Numero == ViewBag.TodasLasFigus[x].Numero && ViewBag.figusUsuario[y].IdSeleccion == x)
+                   if(ViewBag.FigusUsuario[y].Numero == ViewBag.TodasLasFigus[x].Numero )
                    {
                        <img src="~/images/jugadores/@ViewBag.figusUsuario[y].Imagen" alt="@ViewBag.figusUsuario[y].Nombre" />
                        encontrado = true;
