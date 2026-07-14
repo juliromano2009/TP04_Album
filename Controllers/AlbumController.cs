@@ -22,7 +22,7 @@ public class AlbumController : Controller
     {
         List<Figuritas> sobre = new List <Figuritas> (f1 , f2 , f3 , f4 , f5);
         bd.ConfirmarSobre(sobre);
-        return RedirectToAction("Album");
+        return RedirectToAction("VerAlbum");
     }
     public IActionResult VerAlbum()
     {
