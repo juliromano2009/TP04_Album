@@ -21,7 +21,7 @@ public class AlbumController : Controller
     public IActionResult ConfirmarSobre(List<Figuritas> sobre )
     {
         bd.ConfirmarSobre(sobre);
-        return RedirectToAction("Album");
+        return RedirectToAction("VerAlbum");
     }
     public IActionResult VerAlbum()
     {
