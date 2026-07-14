@@ -11,8 +11,8 @@ public class BD
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT Nombre AS Nombre, ID AS Numero, Img AS Imagen, IDSeleccion AS idSeleccion
-                              FROM figuritas";
+            string query = @"SELECT Nombre AS Nombre, ID AS Numero, Imagen AS Imagen, IDSeleccion AS idSeleccion
+                              FROM Jugadores";
             return connection.Query<Figuritas>(query).ToList();
         }
     }
@@ -22,9 +22,9 @@ public class BD
         List<Figuritas> figuritas = new List<Figuritas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT j.Nombre AS Nombre, j.ID AS Numero, j.Img AS Imagen, j.IDSeleccion AS idSeleccion, f.Cantidad AS cantEnPosesion
+            string query = @"SELECT j.Nombre AS Nombre, j.ID AS Numero, j.Imagen AS Imagen, j.IDSeleccion AS idSeleccion, f.Cantidad AS cantEnPosesion
                               FROM Figuritas_X_Usuario f
-                              INNER JOIN figuritas j ON j.ID = f.IDFigurita";
+                              INNER JOIN Jugadores j ON j.ID = f.IDFigurita";
             figuritas = connection.Query<Figuritas>(query).ToList();
         }
         return figuritas;
