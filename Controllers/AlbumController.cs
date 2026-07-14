@@ -28,7 +28,6 @@ public class AlbumController : Controller
         ViewBag.FigusUsuario = bd.ListaFiguritasPorUsuario();
         ViewBag.TodasLasFigus = bd.ListaFiguritas();
         ViewBag.NombreSelecciones = bd.pedirNombreSeleccion();
-        ViewBag.Figuritas = bd.ListaFiguritasPorUsuario();
         return View("Album");
     }
 }

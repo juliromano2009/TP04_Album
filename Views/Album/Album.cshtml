@@ -5,13 +5,21 @@
         @for(int x = i * 5 + 1; x <= i * 5 + 6; x++)
         {
             <div>
-                if(@ViewBag.FigusUsuario[i] == null)
-                {
-                    <img src="fondo.png" alt="">
-                }
-                else{
-                    <img src="@ViewBag.FigusUsuario[i].Imagen" alt="">
-                }
+            @{
+                bool encontrado = false;
+            }
+               @for( int y = 0; y < ViewBag.figusUsuario.Count; y++)
+               {
+                   if(ViewBag.figusUsuario[y].Id == ViewBag.TodasLasFigus[x].Id && ViewBag.figusUsuario[y].IdSeleccion == x)
+                   {
+                       <img src="@ViewBag.figusUsuario[y].Imagen" alt="@ViewBag.figusUsuario[y].Nombre" />
+                       encontrado = true;
+                   }
+               }
+               @if(!encontrado)
+               {
+                   <img src="fondo.png" alt="Figurita no encontrada" />
+               }
             </div>
         }
         
