@@ -1,16 +1,16 @@
-@for(int i = 1; i <= ViewBag.NombreSelecciones.count; i++)
+@for(int i = 0; i < ViewBag.TodasLasFigus.Count; i++)
 {
     <section>
         <h1>@ViewBag.NombreSelecciones[i]</h1>
-        @for(int x = 1; x <= 5; x++)
+        @for(int x = 0; x < ViewBag.FigusUsuario.Count; x++)
         {
             <div>
-                if(@ViewBag.FigusUsuario[(i-1) + x] == null)
+                if(@ViewBag.FigusUsuario[i] == null)
                 {
                     <img src="fondo.png" alt="">
                 }
                 else{
-                    <img src="@ViewBag.FigusUsuario[(i-1) + x].Imagen" alt="">
+                    <img src="@ViewBag.FigusUsuario[i].Imagen" alt="">
                 }
             </div>
         }
