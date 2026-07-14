@@ -12,13 +12,13 @@
                {
                    if(ViewBag.figusUsuario[y].Id == ViewBag.TodasLasFigus[x].Id && ViewBag.figusUsuario[y].IdSeleccion == x)
                    {
-                       <img src="@ViewBag.figusUsuario[y].Imagen" alt="@ViewBag.figusUsuario[y].Nombre" />
+                       <img src="~/images/jugadores/@ViewBag.figusUsuario[y].Imagen" alt="@ViewBag.figusUsuario[y].Nombre" />
                        encontrado = true;
                    }
                }
                @if(!encontrado)
                {
-                   <img src="fondo.png" alt="Figurita no encontrada" />
+                   <img src="~/images/fondo.png" alt="Figurita no encontrada" />
                }
             </div>
         }
