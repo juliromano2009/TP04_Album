@@ -51,13 +51,13 @@ public class BD
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-                    IF EXISTS (SELECT 1 FROM figuritas_x_usuario WHERE ID_Jugador = @ID_Jugador)
-                        UPDATE figuritas_x_usuario
-                        SET cantidad = cantidad + 1
-                        WHERE ID_Jugador = @ID_Jugador
+                    IF EXISTS (SELECT 1 FROM Figuritas_X_Usuario WHERE IDFigurita = @ID_Jugador)
+                        UPDATE Figuritas_X_Usuario
+                        SET Cantidad = Cantidad + 1
+                        WHERE IDFigurita = @ID_Jugador
                     ELSE
-                        INSERT INTO figuritas_x_usuario (ID, ID_Jugador, cantidad)
-                        VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM figuritas_x_usuario), @ID_Jugador, 1)";
+                        INSERT INTO Figuritas_X_Usuario (ID, IDFigurita, Cantidad)
+                        VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
  
                 connection.Execute(query, new { ID_Jugador = sobre[i].Numero });
             }
