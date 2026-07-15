@@ -5,7 +5,7 @@ namespace Album.Models;
  
 public class BD
 {
-    public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
+    public string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
     List<Figuritas> figuritas = new List<Figuritas>();
 
  
@@ -61,7 +61,6 @@ public void ConfirmarSobre(List<int> sobre)
                     VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
 
             connection.Execute(query, new { ID_Jugador = idFigurita });
-            figuritas[idFigurita].cantEnPosesion += 1; 
             
         }
     }

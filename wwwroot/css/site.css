@@ -79,52 +79,97 @@ section {
   clear: both;
 }
 
-/* Contenedor de botones en el Index */
-section div {
+/* Contenedor de botones en el Index (escopeado a .formatoIndex para no pisar otras secciones, como .layout del álbum) */
+.formatoIndex > div {
   background: transparent;
   border: none;
   padding: 0%;
-  width: auto;
   display: block;
   width: 30%;
   height: auto;
 }
 
-section div button {
+.formatoIndex > div button {
   margin: 1% 2%;
 }
 
 /* ==========================================
-   ALBUM: SECCIONES Y FIGURITAS (DIVS)
+   ALBUM: SECCIONES Y FIGURITAS
+   Todo escopeado desde la única clase .layout
+   con selectores de hijo/descendiente (sin
+   clases nuevas) para que las 5 figuritas
+   queden siempre en una sola hilera.
    ========================================== */
-/* Contenedor de cada Selección */
 .layout {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5%;
   margin-bottom: 6%;
+  padding: 2% 2% 3%;
   text-align: center;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-/* Las figuritas individuales */
-div {
-  display: inline-block;
-  vertical-align: top;
+.layout > h1 {
+  grid-column: 1 / -1;
+  margin-top: 0%;
+}
+
+/* Cada figurita: una celda de la grilla de 5 columnas */
+.layout > div {
   background: #ffffff;
-  padding: 1.5%;
+  padding: 6% 4%;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
-  margin: 1%;
-  /* Proporciones físicas de una figurita (más alta que ancha) */
-  width: 160px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.layout > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Figurita todavía no conseguida (usa el mismo alt ya definido en la vista) */
+.layout > div:has(img[alt="Figurita no encontrada"]) {
+  background: #f3f4f6;
+  opacity: 0.6;
+}
+
+.layout > div:has(img[alt="Figurita no encontrada"]):hover {
+  transform: none;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Imagen de la figurita */
-div img {
+/* Imagen de la figurita: escala con la columna, mantiene proporción */
+.layout > div img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 4px;
   display: block;
+}
+
+.layout > div:has(img[alt="Figurita no encontrada"]) img {
+  filter: grayscale(100%);
+}
+
+/* Cantidad en posesión */
+.layout > div p {
+  margin-top: 8%;
+  padding: 6% 0%;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 13px;
+}
+
+.layout > div:has(img[alt="Figurita no encontrada"]) p {
+  background: #e5e7eb;
+  color: #6b7280;
 }
 
 /* ==========================================
