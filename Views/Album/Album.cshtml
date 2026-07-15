@@ -1,6 +1,6 @@
 @for(int i = 0; i < ViewBag.NombreSelecciones.Count; i++)
 {
-    <section>
+    <section class="layout">
         <h1>@ViewBag.NombreSelecciones[i]</h1>
         @for(int x = i * 5; x < i * 5 + 5; x++)
         {
@@ -20,6 +20,7 @@
                {
                    <img src="~/images/fondo.png" alt="Figurita no encontrada" />
                }
+               <p>Cantidad en posesión: @ViewBag.TodasLasFigus[x].cantEnPosesion</p>
             </div>
         }
         

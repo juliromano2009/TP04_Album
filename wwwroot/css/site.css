@@ -62,3 +62,23 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+section{
+  clear: both;
+}
+section h1{
+  clear: both;
+  text-align: center;
+  width: 200%;
+}
+section div p{
+  font-size: 300%;
+}
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
