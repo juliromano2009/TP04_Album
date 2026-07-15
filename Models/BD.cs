@@ -6,6 +6,8 @@ namespace Album.Models;
 public class BD
 {
     public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
+    List<Figuritas> figuritas = new List<Figuritas>();
+
  
     public List<Figuritas> ListaFiguritas()
     {
@@ -19,7 +21,6 @@ public class BD
  
     public List<Figuritas> ListaFiguritasPorUsuario()
     {
-        List<Figuritas> figuritas = new List<Figuritas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = @"SELECT j.Nombre AS Nombre, j.ID AS Numero, j.Imagen AS Imagen, j.IDSeleccion AS idSeleccion, f.Cantidad AS cantEnPosesion
@@ -60,6 +61,8 @@ public void ConfirmarSobre(List<int> sobre)
                     VALUES ((SELECT ISNULL(MAX(ID), 0) + 1 FROM Figuritas_X_Usuario), @ID_Jugador, 1)";
 
             connection.Execute(query, new { ID_Jugador = idFigurita });
+            figuritas[idFigurita].cantEnPosesion += 1; 
+            
         }
     }
 }

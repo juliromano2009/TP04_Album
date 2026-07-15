@@ -8,4 +8,7 @@ public class Figuritas
     public bool yaPegada { get; set; }
     public int cantEnPosesion { get; set; }
     public int idSeleccion { get; set; }
+
 }
+
+
