@@ -5,7 +5,7 @@ namespace Album.Models;
  
 public class BD
 {
-    public string _connectionString = @"Server=localhost\SQLEXPRESS; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
+    public string _connectionString = @"Server=localhost; DataBase = Album; Integrated Security=True; TrustServerCertificate=True;";
     List<Figuritas> figuritas = new List<Figuritas>();
 
  
